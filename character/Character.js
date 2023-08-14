@@ -46,7 +46,7 @@ class Character {
             this._honorableKills = data.honorable_kills;
             this._thumbnailUrl = data.thumbnail_url;
             this._realm = data.realm;
-            this._lastCrawl = data.last_crawled_at;
+            this._lastCrawl = new Date(data.last_crawled_at);
             this._url = data.profile_url;
         })
             .catch(error => {
@@ -175,7 +175,7 @@ class Character {
     /**
      * Gets the last time raider.io updated this character's information
      * this is NOT the time that data was pulled from the API
-     * @returns {String}
+     * @returns {Date}
      */
     getLastCrawl() {
         if (this._lastCrawl == null) {
